@@ -139,3 +139,9 @@ td{
 .carousel-next{
     background-color:#1E3D47 !important;
 }
+.alert01{
+    color: #65CDEE;
+}
+.tblAlert{
+    visibility: collapse;
+}
