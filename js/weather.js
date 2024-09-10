@@ -18,7 +18,7 @@ let historyData;
 
 
 function loadPage(region) {
-   fetch("http://api.weatherapi.com/v1/forecast.json?key=10fd1d1e0ca24a2f99e101538242808&q=" + region + "&days=4&alerts=yes")
+   fetch("https://api.weatherapi.com/v1/forecast.json?key=10fd1d1e0ca24a2f99e101538242808&q=" + region + "&days=4&alerts=yes")
       .then(data => data.json())
       .then(data => {
          forecastData = data;
@@ -30,7 +30,7 @@ function loadPage(region) {
    var yesterday = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + (d.getDate() );
    var lastweek = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + (d.getDate() - 7);
 
-   fetch("http://api.weatherapi.com/v1/history.json?key=10fd1d1e0ca24a2f99e101538242808&q=" + region + "&dt="+lastweek+"&end_dt="+yesterday)
+   fetch("https://api.weatherapi.com/v1/history.json?key=10fd1d1e0ca24a2f99e101538242808&q=" + region + "&dt="+lastweek+"&end_dt="+yesterday)
       .then(data => data.json())
       .then(data => {
          historyData = data;
@@ -282,7 +282,7 @@ document.getElementById('searchRegion').addEventListener('input', () => {
    var searchRegion = document.getElementById('searchRegion').value;
    if (searchRegion != "") {
 
-      fetch("http://api.weatherapi.com/v1/search.json?key=10fd1d1e0ca24a2f99e101538242808&q=" + searchRegion)
+      fetch("https://api.weatherapi.com/v1/search.json?key=10fd1d1e0ca24a2f99e101538242808&q=" + searchRegion)
          .then(data => data.json())
          .then(data => {
             var datalist = "";
