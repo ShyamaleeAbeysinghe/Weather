@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -20,16 +20,18 @@
             <div class="col-sm-12 col-md-6 col-lg-4">
                 <div class="col mode form-check form-switch ">
                     <label class="modeLabel"><b>Dark Mode</b></label>
-                    <input class="form-check-input" type="checkbox" role="switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="togglebtn">
                    
                         <input class="locationSearch" type="text">
                         <img class="iconLocation" src="imeges/icons8-location-48 (1).png">
                     
                 </div>
-                <div class="todayDetails text-center">
-                    <label class="today "><b>Today</b></label>
+                <div class="todayDetails text-center" >
+                    <div>
+                        <label class="alert alert001"><b>Today</b></label>
+                    </div>
                     <center>
-                        <table>
+                        <table  >
                             <tr>
                                 <td>
                                     <img class="iconStorm" src="imeges/temperature.png">
@@ -86,7 +88,7 @@
 
 
                     <div>
-                        <label class="alert"><b>Weather Alert</b></label>
+                        <label class="alert alert001"><b>Weather Alert</b></label>
                     </div>
                     <div class="messeges">
                          <table class="tblAlert" id="tblAlert">
@@ -117,7 +119,7 @@
                             </tr>
                         </table> 
 
-                            <label class="alert01" id="alert01">NO Weather Alert Available</label>
+                            <label class="alert01" id="alert01"><b>NO Weather Alert Available</b></label>
 
 
                     </div>
@@ -136,7 +138,7 @@
             </div>
             <div class="col-sm-12 col-md-6 col-lg-4">
                 <div class="col temp">
-                    <label class="temp02"><b>Temperature</b></label>
+                    <label class="alert temp02"><b>Temperature</b></label>
                     <select>
                         <option><b>Celcious</b></option>
                         <option><b>Faranhite</b></option>
@@ -146,9 +148,9 @@
                     
                     <img src="imeges/icons8-sun-64.png" id="imgToday01">
                     <br>
-                    <label class="todayClimate"><b>Today is a</b> <b id="todayClimate">sunny</b> <b>day</b></label>
+                    <label class="alert todayClimate"><b>Today is a</b> <b id="todayClimate">sunny</b> <b>day</b></label>
                     <br>
-                    <label class="forcastDeatails"><b>Forecast and History Details</b></label>
+                    <label class="alert forcastDeatails"><b>Forecast and History Details</b></label>
                     <br>
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -316,17 +318,17 @@
                                                 </div>
                                                 <div class="col-md-3 mr-3 card01">
                                                     <div>
-                                                        <label class="cardTime" id="hourlyTime01">
+                                                        <label class="cardTime" id="hourlyTime1">
                                                             09:00
                                                         </label>
                                                     </div>
 
                                                     <div class="cardImg">
                                                         <img class="img-fluid" alt="100%x280"
-                                                            src="imeges/icons8-storm-94.png" id="hourlyImg01">
+                                                            src="imeges/icons8-storm-94.png" id="hourlyImg1">
                                                         <div class="card-body">
 
-                                                            <label class="cardTemp" id="hourlyTemp01">
+                                                            <label class="cardTemp" id="hourlyTemp1">
                                                                 9°C
                                                             </label>
 
@@ -335,17 +337,17 @@
                                                 </div>
                                                 <div class="col-md-3 mr-3 card01">
                                                     <div>
-                                                        <label class="cardTime" id="hourlyTime02">
+                                                        <label class="cardTime" id="hourlyTime2">
                                                             09:00
                                                         </label>
                                                     </div>
 
                                                     <div class="cardImg">
                                                         <img class="img-fluid" alt="100%x280"
-                                                            src="imeges/icons8-storm-94.png" id="hourlyImg02">
+                                                            src="imeges/icons8-storm-94.png" id="hourlyImg2">
                                                         <div class="card-body">
 
-                                                            <label class="cardTemp" id="hourlyTemp02">
+                                                            <label class="cardTemp" id="hourlyTemp2">
                                                                 9°C
                                                             </label>
 
@@ -354,17 +356,17 @@
                                                 </div>
                                                 <div class="col-md-3 mr-3 card01">
                                                     <div>
-                                                        <label class="cardTime" id="hourlyTime03">
+                                                        <label class="cardTime" id="hourlyTime3">
                                                             09:00
                                                         </label>
                                                     </div>
 
                                                     <div class="cardImg">
                                                         <img class="img-fluid" alt="100%x280"
-                                                            src="imeges/icons8-storm-94.png" id="hourlyImg03">
+                                                            src="imeges/icons8-storm-94.png" id="hourlyImg3">
                                                         <div class="card-body">
 
-                                                            <label class="cardTemp" id="hourlyTemp03">
+                                                            <label class="cardTemp" id="hourlyTemp3">
                                                                 9°C
                                                             </label>
 
@@ -393,17 +395,17 @@
                                                 </div>
                                                 <div class="col-md-3 mr-3 card01">
                                                     <div>
-                                                        <label class="cardTime" id="hourlyTime04">
+                                                        <label class="cardTime" id="hourlyTime4">
                                                             09:00
                                                         </label>
                                                     </div>
 
                                                     <div class="cardImg">
                                                         <img class="img-fluid" alt="100%x280"
-                                                            src="imeges/icons8-storm-94.png" id="hourlyImg04">
+                                                            src="imeges/icons8-storm-94.png" id="hourlyImg4">
                                                         <div class="card-body">
 
-                                                            <label class="cardTemp" id="hourlyTemp04">
+                                                            <label class="cardTemp" id="hourlyTemp4">
                                                                 9°C
                                                             </label>
 
@@ -412,17 +414,17 @@
                                                 </div>
                                                 <div class="col-md-3 mr-3 card01">
                                                     <div>
-                                                        <label class="cardTime" id="hourlyTime05">
+                                                        <label class="cardTime" id="hourlyTime5">
                                                             09:00
                                                         </label>
                                                     </div>
 
                                                     <div class="cardImg">
                                                         <img class="img-fluid" alt="100%x280"
-                                                            src="imeges/icons8-storm-94.png" id="hourlyImg05">
+                                                            src="imeges/icons8-storm-94.png" id="hourlyImg5">
                                                         <div class="card-body">
 
-                                                            <label class="cardTemp" id="hourlyTemp05">
+                                                            <label class="cardTemp" id="hourlyTemp5">
                                                                 9°C
                                                             </label>
 
@@ -431,17 +433,17 @@
                                                 </div>
                                                 <div class="col-md-3 mr-3 card01">
                                                     <div>
-                                                        <label class="cardTime" id="hourlyTime06">
+                                                        <label class="cardTime" id="hourlyTime6">
                                                             09:00
                                                         </label>
                                                     </div>
 
                                                     <div class="cardImg">
                                                         <img class="img-fluid" alt="100%x280"
-                                                            src="imeges/icons8-storm-94.png" id="hourlyImg06">
+                                                            src="imeges/icons8-storm-94.png" id="hourlyImg6">
                                                         <div class="card-body">
 
-                                                            <label class="cardTemp" id="hourlyTemp06">
+                                                            <label class="cardTemp" id="hourlyTemp6">
                                                                 9°C
                                                             </label>
 
@@ -474,17 +476,17 @@
                                                 </div>
                                                 <div class="col-md-3 mr-3 card01">
                                                     <div>
-                                                        <label class="cardTime" id="hourlyTime07">
+                                                        <label class="cardTime" id="hourlyTime7">
                                                             09:00
                                                         </label>
                                                     </div>
 
                                                     <div class="cardImg">
                                                         <img class="img-fluid" alt="100%x280"
-                                                            src="imeges/icons8-storm-94.png" id="hourlyImg07">
+                                                            src="imeges/icons8-storm-94.png" id="hourlyImg7">
                                                         <div class="card-body">
 
-                                                            <label class="cardTemp" id="hourlyTemp07">
+                                                            <label class="cardTemp" id="hourlyTemp7">
                                                                 9°C
                                                             </label>
 
@@ -493,17 +495,17 @@
                                                 </div>
                                                 <div class="col-md-3 mr-3 card01">
                                                     <div>
-                                                        <label class="cardTime" id="hourlyTime08">
+                                                        <label class="cardTime" id="hourlyTime8">
                                                             09:00
                                                         </label>
                                                     </div>
 
                                                     <div class="cardImg">
                                                         <img class="img-fluid" alt="100%x280"
-                                                            src="imeges/icons8-storm-94.png" id="hourlyImg08">
+                                                            src="imeges/icons8-storm-94.png" id="hourlyImg8">
                                                         <div class="card-body">
 
-                                                            <label class="cardTemp" id="hourlyTemp08">
+                                                            <label class="cardTemp" id="hourlyTemp8">
                                                                 9°C
                                                             </label>
 
@@ -512,17 +514,17 @@
                                                 </div>
                                                 <div class="col-md-3 mr-3 card01">
                                                     <div>
-                                                        <label class="cardTime" id="hourlyTime09">
+                                                        <label class="cardTime" id="hourlyTime9">
                                                             09:00
                                                         </label>
                                                     </div>
 
                                                     <div class="cardImg">
                                                         <img class="img-fluid" alt="100%x280"
-                                                            src="imeges/icons8-storm-94.png" id="hourlyImg09">
+                                                            src="imeges/icons8-storm-94.png" id="hourlyImg9">
                                                         <div class="card-body">
 
-                                                            <label class="cardTemp" id="hourlyTemp09">
+                                                            <label class="cardTemp" id="hourlyTemp9">
                                                                 9°C
                                                             </label>
 

@@ -4,7 +4,7 @@
 
 }
 .mainRow{
-    background-color: #C2D1D6;
+    background-color: #C2D1D6;/*010808*/  /*C2D1D6*/
 }
 .mode{
     margin-top: 10%;
@@ -32,15 +32,16 @@
     margin-top: 10%;
 }
 .todayDetails{
-    background-color: #85A4AD;
+    background-color: #85A4AD;/* #212529 */  /*85A4AD*/
     border-radius: 13px;
     padding-bottom: 10px;
     margin-top: 5%;
 }
 .today{
-   color:#1E3D47;
+    color:#1E3D47;
     font-size: 30px;
 }
+
 .iconStorm{
    width: 48px;
 }
@@ -49,11 +50,12 @@ td{
 
 }
 .name{
-    color: #244853;
+    color: #244853;/* 0482ac */  /*244853*/
 }
-.alert{
+.alert001{
     color:#1E3D47;
     font-size: 30px;
+    margin: 0px !important;
 }
 .messeges{
     background-color: #E0F5FC;
@@ -82,7 +84,8 @@ td{
 .forcastDeatails{
     font-size: 25px;
     color: #1E3D47;
-    margin-top: 10px;
+    margin: 0px;
+    margin-top: -20px;
 }
 .forecastHourly{
     margin-top: 40px;
@@ -103,7 +106,7 @@ td{
 
 }
 .card01{
-    background-color: #5C8592;
+    background-color: #5C8592;/*022d3a*/  /*5C8592*/
     padding-top: 25px;
     padding-bottom: 25px;
     padding-right: 10%;
@@ -114,13 +117,13 @@ td{
 }
 
 .cardTime{
-    background-color: #D9D9D9;
+    background-color: #D9D9D9;     /*1b1a1a*/        /*D9D9D9*/
     border-radius: 10px;
     padding-left: 10px;
     padding-right: 10px;
 }
 .cardTemp{
-    background-color: #D9D9D9;
+    background-color: #D9D9D9;/*1b1a1a*/ /*D9D9D9*/
     border-radius: 10px;
     padding-left: 10px;
     padding-right: 10px;
