@@ -10,6 +10,9 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css"
         href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.maptiler.com/maptiler-sdk-js/v2.2.2/maptiler-sdk.umd.min.js"></script>
+    <link href="https://cdn.maptiler.com/maptiler-sdk-js/v2.2.2/maptiler-sdk.css" rel="stylesheet" />
+    <script src="https://cdn.maptiler.com/maptiler-weather/v2.0.0/maptiler-weather.umd.min.js"></script>
 
 
 </head>
@@ -21,17 +24,20 @@
                 <div class="col mode form-check form-switch ">
                     <label class="modeLabel"><b>Dark Mode</b></label>
                     <input class="form-check-input" type="checkbox" role="switch" id="togglebtn">
-                   
-                        <input class="locationSearch" type="text">
-                        <img class="iconLocation" src="imeges/icons8-location-48 (1).png">
-                    
+
+                    <input class="locationSearch" list="region" type="text" id="searchRegion">
+                    <datalist id="region">
+
+                    </datalist>
+                    <img class="iconLocation" src="imeges/icons8-location-48 (1).png">
+
                 </div>
-                <div class="todayDetails text-center" >
+                <div class="todayDetails text-center">
                     <div>
                         <label class="alert alert001"><b>Today</b></label>
                     </div>
                     <center>
-                        <table  >
+                        <table>
                             <tr>
                                 <td>
                                     <img class="iconStorm" src="imeges/temperature.png">
@@ -91,7 +97,7 @@
                         <label class="alert alert001"><b>Weather Alert</b></label>
                     </div>
                     <div class="messeges">
-                         <table class="tblAlert" id="tblAlert">
+                        <table class="tblAlert" id="tblAlert">
                             <tr>
                                 <td>
                                     <label><b>HEADLINE :</b></label>
@@ -117,9 +123,9 @@
                                     <input class="alertText" type="text">
                                 </td>
                             </tr>
-                        </table> 
+                        </table>
 
-                            <label class="alert01" id="alert01"><b>NO Weather Alert Available</b></label>
+                        <label class="alert01" id="alert01"><b>NO Weather Alert Available</b></label>
 
 
                     </div>
@@ -129,26 +135,37 @@
 
             <div class="col-sm-12 col-md-6 col-lg-4">
                 <div class="col dateTime text-center">
-                    <label class="dateTime01" ><b id="dateTime01">2024/08/09 09:00</b></label>
+                    <label class="dateTime01"><b id="dateTime01">2024/08/09 09:00</b></label>
 
                 </div>
-                <div class="col location01">
+                <!-- <div class="col location01">
                     <img class="imgLocation" src="imeges/location.webp">
-                </div>
+                </div> -->
+              <div class="row">
+                <!-- <div id="time-info">
+                    <span id="time-text"></span>
+                    <button id="play-pause-bt" class="button">Play 3600x</button>
+                    <input type="range" id="time-slider" min="0" max="11" step="1">
+                </div> -->
+                <!-- <div id="variable-name">Wind</div>
+                <div id="pointer-data"></div> -->
+                <div id="map"></div>
+              </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-4">
                 <div class="col temp">
                     <label class="alert temp02"><b>Temperature</b></label>
-                    <select>
-                        <option><b>Celcious</b></option>
+                    <select id="tempDropdown">
+                        <option selected="selected"><b>Celcious</b></option>
                         <option><b>Faranhite</b></option>
                     </select>
                 </div>
                 <div class="todayDetails text-center">
-                    
+
                     <img src="imeges/icons8-sun-64.png" id="imgToday01">
                     <br>
-                    <label class="alert todayClimate"><b>Today is a</b> <b id="todayClimate">sunny</b> <b>day</b></label>
+                    <label class="alert todayClimate"><b>Today is a</b> <b id="todayClimate">sunny</b>
+                        <b>day</b></label>
                     <br>
                     <label class="alert forcastDeatails"><b>Forecast and History Details</b></label>
                     <br>
@@ -165,16 +182,18 @@
                         <div class="tab-pane fade show active" id="forecast" role="tabpanel"
                             aria-labelledby="nav-home-tab">
                             <center>
-                                <table >
+                                <table>
                                     <tr>
                                         <td>
                                             <img class="iconStorm" src="imeges/icons8-storm-94.png" id="imgForecast01">
                                         </td>
                                         <td>
-                                            <label class="name"><b id="forecastDay01">Sunday,September</b><br><b id="forecastTemp01">Temperature</b> </label>
+                                            <label class="name"><b id="forecastDay01">Sunday,September</b><br><b
+                                                    id="forecastTemp01">Temperature</b> </label>
                                         </td>
                                         <td>
-                                            <label class="name"><b id="tempMin01">06 °C</b><br><b id="tempMax01">06 °C</b></label>
+                                            <label class="name"><b id="tempMin01">06 °C</b><br><b id="tempMax01">06
+                                                    °C</b></label>
                                         </td>
                                     </tr>
                                     <tr>
@@ -182,10 +201,12 @@
                                             <img class="iconStorm" src="imeges/icons8-storm-94.png" id="imgForecast02">
                                         </td>
                                         <td>
-                                            <label class="name"><b id="forecastDay02">Monday,September</b><br><b id="forecastTemp02">Humidity</b> </label>
+                                            <label class="name"><b id="forecastDay02">Monday,September</b><br><b
+                                                    id="forecastTemp02">Humidity</b> </label>
                                         </td>
                                         <td>
-                                            <label class="name"><b id="tempMin02">06 °C</b><br><b id="tempMax02">15 °C</b></label>
+                                            <label class="name"><b id="tempMin02">06 °C</b><br><b id="tempMax02">15
+                                                    °C</b></label>
                                         </td>
                                     </tr>
                                     <tr>
@@ -193,10 +214,12 @@
                                             <img class="iconStorm" src="imeges/icons8-storm-94.png " id="imgForecast03">
                                         </td>
                                         <td>
-                                            <label class="name"><b id="forecastDay03">Tuesday,September</b><br ><b id="forecastTemp03">wind speed</b> </label>
+                                            <label class="name"><b id="forecastDay03">Tuesday,September</b><br><b
+                                                    id="forecastTemp03">wind speed</b> </label>
                                         </td>
-                                        <td> 
-                                            <label class="name"><b id="tempMin03">06 °C</b><br><b id="tempMax03">15 °C</b></label>
+                                        <td>
+                                            <label class="name"><b id="tempMin03">06 °C</b><br><b id="tempMax03">15
+                                                    °C</b></label>
                                         </td>
 
                                     </tr>
@@ -206,16 +229,18 @@
                         <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="nav-profile-tab">
 
                             <center>
-                                <table >
+                                <table>
                                     <tr>
                                         <td>
                                             <img class="iconStorm" src="imeges/icons8-storm-94.png" id="imgHistort01">
                                         </td>
                                         <td>
-                                            <label class="name"><b id="historyDay01">Sunday,September</b><br><b id="historyTemp01">Heavy Rain </b></label>
+                                            <label class="name"><b id="historyDay01">Sunday,September</b><br><b
+                                                    id="historyTemp01">Heavy Rain </b></label>
                                         </td>
                                         <td>
-                                            <label class="name"><b id="historyMin01">06 °C</b><br><b id="historyMax01">15 °C</b></label>
+                                            <label class="name"><b id="historyMin01">06 °C</b><br><b
+                                                    id="historyMax01">15 °C</b></label>
                                         </td>
                                     </tr>
                                     <tr>
@@ -223,10 +248,12 @@
                                             <img class="iconStorm" src="imeges/icons8-storm-94.png" id="imgHistort02">
                                         </td>
                                         <td>
-                                            <label class="name"><b id="historyDay02">Monday,September</b><br><b id="historyTemp02">Partly Cloudy</b> </label>
+                                            <label class="name"><b id="historyDay02">Monday,September</b><br><b
+                                                    id="historyTemp02">Partly Cloudy</b> </label>
                                         </td>
                                         <td>
-                                            <label class="name"><b id="historyMin02">06 °C</b><br><b id="historyMax02">15 °C</b></label>
+                                            <label class="name"><b id="historyMin02">06 °C</b><br><b
+                                                    id="historyMax02">15 °C</b></label>
                                         </td>
                                     </tr>
                                     <tr>
@@ -234,10 +261,12 @@
                                             <img class="iconStorm" src="imeges/icons8-storm-94.png" id="imgHistort03">
                                         </td>
                                         <td>
-                                            <label class="name"><b id="historyDay03">Tuesday,September</b><br><b id="historyTemp03">fog </b></label>
+                                            <label class="name"><b id="historyDay03">Tuesday,September</b><br><b
+                                                    id="historyTemp03">fog </b></label>
                                         </td>
                                         <td>
-                                            <label class="name"><b id="historyMin03">06 °C</b><br><b id="historyMax03">15 °C</b></label>
+                                            <label class="name"><b id="historyMin03">06 °C</b><br><b
+                                                    id="historyMax03">15 °C</b></label>
                                         </td>
                                     </tr>
                                     <tr>
@@ -245,10 +274,12 @@
                                             <img class="iconStorm" src="imeges/icons8-storm-94.png" id="imgHistort04">
                                         </td>
                                         <td>
-                                            <label class="name"><b id="historyDay04">Wenesday,September</b><br><b id="historyTemp04">Rain</b> </label>
+                                            <label class="name"><b id="historyDay04">Wenesday,September</b><br><b
+                                                    id="historyTemp04">Rain</b> </label>
                                         </td>
                                         <td>
-                                            <label class="name"><b id="historyMin04">06 °C</b><br><b id="historyMax04">15 °C</b></label>
+                                            <label class="name"><b id="historyMin04">06 °C</b><br><b
+                                                    id="historyMax04">15 °C</b></label>
                                         </td>
                                     </tr>
                                     <tr>
@@ -256,10 +287,12 @@
                                             <img class="iconStorm" src="imeges/icons8-storm-94.png" id="imgHistort05">
                                         </td>
                                         <td>
-                                            <label class="name"><b id="historyDay05">Thruesday,September</b><br><b id="historyTemp05">Partly Cloudy</b> </label>
+                                            <label class="name"><b id="historyDay05">Thruesday,September</b><br><b
+                                                    id="historyTemp05">Partly Cloudy</b> </label>
                                         </td>
                                         <td>
-                                            <label class="name"><b id="historyMin05">06 °C</b><br><b id="historyMax05">15 °C</b></label>
+                                            <label class="name"><b id="historyMin05">06 °C</b><br><b
+                                                    id="historyMax05">15 °C</b></label>
                                         </td>
                                     </tr>
                                     <tr>
@@ -267,22 +300,26 @@
                                             <img class="iconStorm" src="imeges/icons8-storm-94.png" id="imgHistort06">
                                         </td>
                                         <td>
-                                            <label class="name"><b id="historyDay06">Friday,September</b><br><b id="historyTemp06">Rain</b> </label>
+                                            <label class="name"><b id="historyDay06">Friday,September</b><br><b
+                                                    id="historyTemp06">Rain</b> </label>
                                         </td>
                                         <td>
-                                            <label class="name"><b id="historyMin06">06 °C</b><br><b id="historyMax06">15 °C</b></label>
+                                            <label class="name"><b id="historyMin06">06 °C</b><br><b
+                                                    id="historyMax06">15 °C</b></label>
                                         </td>
-                                   </tr>
+                                    </tr>
                                     <tr>
                                         <td>
                                             <img class="iconStorm" src="imeges/icons8-storm-94.png" id="imgHistort07">
                                         </td>
                                         <td>
-                                            <label class="name"><b id="historyDay07">Saturday,September</b><br><b id="historyTemp07">Partly Cloudy</b> </label>
+                                            <label class="name"><b id="historyDay07">Saturday,September</b><br><b
+                                                    id="historyTemp07">Partly Cloudy</b> </label>
                                         </td>
                                         <td>
 
-                                            <label class="name"><b id="historyMin07">06 °C</b><br><b id="historyMax07">15 °C</b></label>
+                                            <label class="name"><b id="historyMin07">06 °C</b><br><b
+                                                    id="historyMax07">15 °C</b></label>
                                         </td>
 
                                     </tr>
@@ -455,10 +492,10 @@
 
                                                 <div class="col-md-1">
                                                     <a class="btn mb-3 mr-1 carousel-next"
-                                                    href="#carouselExampleIndicators2" role="button"
-                                                    data-slide="next">
-                                                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                                                </a>
+                                                        href="#carouselExampleIndicators2" role="button"
+                                                        data-slide="next">
+                                                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                                    </a>
                                                 </div>
 
 
@@ -535,10 +572,10 @@
 
                                                 <div class="col-md-1">
                                                     <a class="btn mb-3 mr-1 carousel-next"
-                                                    href="#carouselExampleIndicators2" role="button"
-                                                    data-slide="next">
-                                                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                                                </a>
+                                                        href="#carouselExampleIndicators2" role="button"
+                                                        data-slide="next">
+                                                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                                    </a>
                                                 </div>
 
 
@@ -615,10 +652,10 @@
 
                                                 <div class="col-md-1">
                                                     <a class="btn mb-3 mr-1 carousel-next"
-                                                    href="#carouselExampleIndicators2" role="button"
-                                                    data-slide="next">
-                                                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                                                </a>
+                                                        href="#carouselExampleIndicators2" role="button"
+                                                        data-slide="next">
+                                                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                                    </a>
                                                 </div>
 
 
@@ -695,10 +732,10 @@
 
                                                 <div class="col-md-1">
                                                     <a class="btn mb-3 mr-1 carousel-next"
-                                                    href="#carouselExampleIndicators2" role="button"
-                                                    data-slide="next">
-                                                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                                                </a>
+                                                        href="#carouselExampleIndicators2" role="button"
+                                                        data-slide="next">
+                                                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                                    </a>
                                                 </div>
 
 
@@ -775,10 +812,10 @@
 
                                                 <div class="col-md-1">
                                                     <a class="btn mb-3 mr-1 carousel-next"
-                                                    href="#carouselExampleIndicators2" role="button"
-                                                    data-slide="next">
-                                                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                                                </a>
+                                                        href="#carouselExampleIndicators2" role="button"
+                                                        data-slide="next">
+                                                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                                    </a>
                                                 </div>
 
 
@@ -855,10 +892,10 @@
 
                                                 <div class="col-md-1">
                                                     <a class="btn mb-3 mr-1 carousel-next"
-                                                    href="#carouselExampleIndicators2" role="button"
-                                                    data-slide="next">
-                                                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                                                </a>
+                                                        href="#carouselExampleIndicators2" role="button"
+                                                        data-slide="next">
+                                                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                                    </a>
                                                 </div>
 
 
@@ -935,10 +972,10 @@
 
                                                 <div class="col-md-1">
                                                     <a class="btn mb-3 mr-1 carousel-next"
-                                                    href="#carouselExampleIndicators2" role="button"
-                                                    data-slide="next">
-                                                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                                                </a>
+                                                        href="#carouselExampleIndicators2" role="button"
+                                                        data-slide="next">
+                                                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                                    </a>
                                                 </div>
 
 
@@ -967,7 +1004,7 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <script type="text/javascript"
         src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-        <script src="js/weather.js" type="text/javascript"></script> 
+    <script src="js/weather.js" type="text/javascript"></script>
 
 </body>
 
