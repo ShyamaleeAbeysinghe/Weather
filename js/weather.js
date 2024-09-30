@@ -25,6 +25,11 @@ function loadPage(region) {
       }).then(function (json) {
          loadForecastData("Celcious");
       })
+      .catch(error => {
+         console.log("fetch error")
+         alert("Error in connecting. Please try again later")
+           
+       });
 
    var d = new Date();
    var yesterday = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + (d.getDate() );
@@ -36,7 +41,13 @@ function loadPage(region) {
          historyData = data;
       }).then(function (json) {
          loadHistoryData("Celcious")
+         
       })
+      .catch(error => {
+         console.log("fetch error")
+         alert("Error in connecting. Please try again later")
+           
+       });
 
 
 }
@@ -60,13 +71,13 @@ function loadForecastData(temperatureInput) {
       tempIndex++;
 
       let imgForecast = document.getElementById("imgForecast0" + tempIndex)
-      imgForecast.src = forecastData.forecast.forecastday[index + 1].day.condition.icon;
+      imgForecast.src = forecastData.forecast.forecastday[index].day.condition.icon;
 
       let forecastDay = document.getElementById("forecastDay0" + tempIndex)
-      forecastDay.innerHTML = forecastData.forecast.forecastday[index + 1].date;
+      forecastDay.innerHTML = forecastData.forecast.forecastday[index].date;
 
       let forecastTemp = document.getElementById("forecastTemp0" + tempIndex)
-      forecastTemp.innerHTML = forecastData.forecast.forecastday[index + 1].day.condition.text;
+      forecastTemp.innerHTML = forecastData.forecast.forecastday[index].day.condition.text;
 
 
 
@@ -97,10 +108,10 @@ function loadForecastData(temperatureInput) {
          tempIndex++;
 
          let tempMin = document.getElementById("tempMin0" + tempIndex)
-         tempMin.innerHTML = forecastData.forecast.forecastday[index + 1].day.mintemp_c + "°C";
+         tempMin.innerHTML = forecastData.forecast.forecastday[index].day.mintemp_c + "°C";
 
          let tempMax = document.getElementById("tempMax0" + tempIndex)
-         tempMax.innerHTML = forecastData.forecast.forecastday[index + 1].day.maxtemp_c + "°C";
+         tempMax.innerHTML = forecastData.forecast.forecastday[index].day.maxtemp_c + "°C";
 
       }
 
@@ -123,10 +134,10 @@ function loadForecastData(temperatureInput) {
          tempIndex++;
 
          let tempMin = document.getElementById("tempMin0" + tempIndex)
-         tempMin.innerHTML = forecastData.forecast.forecastday[index + 1].day.mintemp_f + "°F";
+         tempMin.innerHTML = forecastData.forecast.forecastday[index].day.mintemp_f + "°F";
 
          let tempMax = document.getElementById("tempMax0" + tempIndex)
-         tempMax.innerHTML = forecastData.forecast.forecastday[index + 1].day.maxtemp_f + "°F";
+         tempMax.innerHTML = forecastData.forecast.forecastday[index].day.maxtemp_f + "°F";
 
       }
 
@@ -292,6 +303,12 @@ document.getElementById('searchRegion').addEventListener('input', () => {
 
             region.innerHTML = datalist;
          })
+         .catch(error => {
+            console.log("fetch error")
+            alert("Error in connecting. Please try again later")
+              
+          });
+          
       var opt = document.getElementById('region').children;
       for (var i = 0; i < opt.length; i++) {
          if (opt[i].value == searchRegion) {
