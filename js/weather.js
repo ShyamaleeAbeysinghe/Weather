@@ -33,7 +33,9 @@ function loadPage(region) {
 
    var d = new Date();
    var yesterday = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + (d.getDate() );
-   var lastweek = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + (d.getDate() - 7);
+   d.setDate(d.getDate() - 7);
+   var lastweek = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + (d.getDate());
+   console.log(lastweek)
 
    fetch("https://api.weatherapi.com/v1/history.json?key=10fd1d1e0ca24a2f99e101538242808&q=" + region + "&dt="+lastweek+"&end_dt="+yesterday)
       .then(data => data.json())
